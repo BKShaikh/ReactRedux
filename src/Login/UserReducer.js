@@ -4,11 +4,6 @@ const intialState = { isProcessLoading: false, isRouteAllowed: false, data: [] }
 
 export default function users(userState = intialState, action) {
     switch (action.type) {
-        case actionTypes.USER_LOGIN:
-            return {
-                ...userState,
-                isRouteAllowed: true,
-            }
         case actionTypes.USER_LOGOUT:
             return {
                 ...userState,
@@ -23,9 +18,10 @@ export default function users(userState = intialState, action) {
                 isRouteAllowed: false,
             };
         case actionTypes.LOAD_USER_SUCCESS:
+            console.log("inside reducer",action.payload)
             return {
                 ...userState,
-                data: action.payload.userState,
+                data: action.payload.list,
                 isRouteAllowed: true,
                 isProcessLoading: false
             }

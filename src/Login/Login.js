@@ -4,7 +4,9 @@ import { connect } from "react-redux";
 import { userLoginThunk } from "../Thunk/LoginThunk";
 import { getUserState } from '../selector';
 
-const Login = ({ logingIn, onLoginPressed, history }) => {
+export const Login = ({ onFormSubmitFailed, onLoginPressed, history }) => {
+    console.log("history in login", history)
+    console.log("onLoginPressed in login", onLoginPressed)
     const layout = {
         labelCol: { span: 8 },
         wrapperCol: { span: 8 },
@@ -13,15 +15,17 @@ const Login = ({ logingIn, onLoginPressed, history }) => {
         wrapperCol: { offset: 8, span: 16 },
     };
     const onFinish = (values) => {
-        console.log('Success:', values);
+        console.log("Form Values ", values)
+        console.log("onLoginPressed in onFinish", onLoginPressed)
         onLoginPressed(values, history);
     };
 
     const onFinishFailed = (errorInfo) => {
-        console.log('Failed:', errorInfo);
+        onFormSubmitFailed();
     };
+    //const condition = props.logingInUser.isRouteAllowed ? true : false;
     return (
-        <Form
+        <Form data-testid="loginForm"
             {...layout}
             style={{
                 padding: '30vh',
@@ -37,7 +41,7 @@ const Login = ({ logingIn, onLoginPressed, history }) => {
                 name="username"
                 rules={[{ required: true, message: 'Please input your username!' }]}
             >
-                <Input />
+                <Input data-testid="UsernameInput" placeholder="UserName" />
             </Form.Item>
 
             <Form.Item
@@ -45,11 +49,11 @@ const Login = ({ logingIn, onLoginPressed, history }) => {
                 name="password"
                 rules={[{ required: true, message: 'Please input your password!' }]}
             >
-                <Input.Password />
+                <Input.Password data-testid="PasswordInput" placeholder="Password" />
             </Form.Item>
 
             <Form.Item {...tailLayout}>
-                <Button type="primary" htmlType="submit">
+                <Button data-testid="submitButton" type="primary" htmlType="submit">
                     Submit
                  </Button>
             </Form.Item>
@@ -57,12 +61,12 @@ const Login = ({ logingIn, onLoginPressed, history }) => {
     );
 };
 
+
 const mapStateToProps = state => ({
     logingIn: getUserState(state),
 });
 
 const mapDispatchToProp = dispatch => ({
-    onLoginPressed: (userName, password) => dispatch(userLoginThunk(userName, password)),
+    onLoginPressed: (userObj, history) => dispatch(userLoginThunk(userObj, history)),
 });
-
-export default connect(mapStateToProps, mapDispatchToProp)(Login);
+export default connect(mapStateToProps,mapDispatchToProp)(Login);

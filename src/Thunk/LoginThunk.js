@@ -12,6 +12,7 @@ export const displayAlert = text => () => {
 
 export const userLoginThunk = (userObj, history) => async (dispatch, getState) => {
     try {
+        console.log("Came in User Login Thunk")
         debugger
         dispatch(loadUserInProgress());
         const response = await fetch(URI + "login/" + userObj.username + "/" + userObj.password);

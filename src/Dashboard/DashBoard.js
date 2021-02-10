@@ -6,16 +6,20 @@ import MemberList from '../Members/MemberList';
 import MemberView from '../Members/MemberView';
 import About from "../About";
 import DashBoardWelcome from './DashBoardWelcome';
-import store  from "../store";
+import store from "../store";
+import { userLogout } from "../actions";
 const { Header, Content } = Layout;
 
 class DashBoard extends Component {
+    onLogout() {
+        debugger
+        console.log("aa")
+        store.dispatch(userLogout());
+        this.props.history.push("../..");
+    }
     render() {
-        function onLogout() {
-          
-        }
         return (
-            <Layout className="layout">
+            <Layout data-testid="DashBoardBase" className="layout">
                 <Header>
                     <Menu theme="dark" mode="horizontal">
                         <Menu.Item key="1" >Members List
@@ -30,9 +34,7 @@ class DashBoard extends Component {
                             <Link exact to="/dashboard/about">
                             </Link>
                         </Menu.Item>
-                        <Menu.Item style={{ float: 'right' }} key="3" onClick={() => onLogout()}>Logout
-                        <Link exact to="">
-                            </Link>
+                        <Menu.Item style={{ float: 'right' }} key="3" onClick={() => this.onLogout()}>Logout
                         </Menu.Item>
                     </Menu>
                 </Header>
@@ -43,7 +45,7 @@ class DashBoard extends Component {
                     <Route path="/dashboard/member/:slug/:id" component={MemberView} />
                     <Route path="/dashboard/memberadd/:slug" component={MemberView} />
                     <Route path="/dashboard/about" component={About} />
-                    <Route path="/dashboard" exact component={DashBoardWelcome} />
+                    <Route path="/dashboard" exact={true} component={DashBoardWelcome} />
                 </Content>
             </Layout>
         );

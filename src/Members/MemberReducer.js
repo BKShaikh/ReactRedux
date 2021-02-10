@@ -1,7 +1,6 @@
 import actionTypes from '../actionTypes'
 
 const intialState = { isProcessLoading: false, list: [], detail: null }
-
 export function members(memberState = intialState, action) {
     switch (action.type) {
         case actionTypes.LOAD_MEMBER_PROGRESS:
@@ -40,7 +39,7 @@ export function members(memberState = intialState, action) {
                 list: memberState.list.filter(member => member.id !== action.payload.id)
             }
         case actionTypes.MEMBER_ADD:
-            return{
+            return {
                 ...memberState,
                 isProcessLoading: false,
                 detail: action.payload.member

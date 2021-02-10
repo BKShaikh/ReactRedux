@@ -1,12 +1,5 @@
 import actionTypes from './actionTypes';
 
-export const userLogin = userState => ({
-    type: actionTypes.USER_LOGIN,
-    payload: {
-        userState
-    }
-});
-
 export const userLogout = () => ({
     type: actionTypes.USER_LOGOUT
 });
@@ -19,34 +12,13 @@ export const loadUserInFailure = () => ({
     type: actionTypes.LOAD_USER_FAILURE
 });
 
-export const loadUserInSuccess = userState => ({
+export const loadUserInSuccess = list => ({
     type: actionTypes.LOAD_USER_SUCCESS,
     payload: {
-        userState
+        list
     }
 });
 
-export const memberAdd = members => ({
-    type: actionTypes.MEMBER_ADD,
-    payload: {
-        members
-    }
-});
-
-
-export const memberEdit = members => ({
-    type: actionTypes.MEMBER_EDIT,
-    payload: {
-        members
-    }
-});
-
-export const memberDelete = members => ({
-    type: actionTypes.MEMBER_DELETE,
-    payload: {
-        members
-    }
-});
 
 export const loadMemberInProgress = () => ({
     type: actionTypes.LOAD_MEMBER_PROGRESS

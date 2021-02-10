@@ -11,7 +11,7 @@ const Home = props => {
             <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
                 <Menu theme="dark" mode="horizontal" >
                     <Menu.Item key="1">LOGIN
-                        <Link exact to="/login" />
+                        <Link data-testid="loginButton" exact to="/login" />
                     </Menu.Item>
                 </Menu>
             </Header>

@@ -15,8 +15,7 @@ PrivateRoute.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    logingInUser: getUserAllowed(state),
-    props: state.props
+    logingInUser: getUserAllowed(state)
 });
 
 const mapDispatchToProp = dispatch => ({

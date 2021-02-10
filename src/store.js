@@ -7,6 +7,7 @@ import { members, singleMember } from './Members/MemberReducer';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from "redux-devtools-extension";
 
+debugger
 const reducers = { users, members };
 const persistConfig = {
     key: 'root',

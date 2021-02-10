@@ -120,7 +120,6 @@ export const AddSingleMember = (memberObj, history) => async (dispatch, getState
         const members = await response.json();
         dispatch(addMemberDetail(members));
         history.push("../member/view/" + members.id);
-        //history.replace("../../member/view/" + members.id);
     } catch (e) {
         debugger
         dispatch(loadMemberInFailure());

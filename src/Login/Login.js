@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react';
-import { Form, Input, Button, Checkbox } from 'antd';
+import React from 'react';
+import { Form, Input, Button } from 'antd';
 import { connect } from "react-redux";
 import { userLoginThunk } from "../Thunk/LoginThunk";
 import { getUserState } from '../selector';
 
 export const Login = ({ onFormSubmitFailed, onLoginPressed, history }) => {
-    console.log("history in login", history)
-    console.log("onLoginPressed in login", onLoginPressed)
     const layout = {
         labelCol: { span: 8 },
         wrapperCol: { span: 8 },
@@ -15,8 +13,6 @@ export const Login = ({ onFormSubmitFailed, onLoginPressed, history }) => {
         wrapperCol: { offset: 8, span: 16 },
     };
     const onFinish = (values) => {
-        console.log("Form Values ", values)
-        console.log("onLoginPressed in onFinish", onLoginPressed)
         onLoginPressed(values, history);
     };
 

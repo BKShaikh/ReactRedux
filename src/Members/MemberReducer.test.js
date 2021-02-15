@@ -10,19 +10,20 @@ const fakeMember = {
     createdAt: '01/01/2020',
 }
 const intialState = { isProcessLoading: false, list: [], detail: null }
-test("Default Member Reducer", () => {
-    const fakeDefaultAction = {
-        type: 'dafault',
-    }
-    const expectedDefaultMember = {
-        isProcessLoading: intialState.isProcessLoading, list: intialState.list, detail: intialState.detail
-    }
-    const actualDefaultMember = members(undefined, fakeDefaultAction);
-    expect(actualDefaultMember).toEqual(expectedDefaultMember);
+describe("The Default Member List Reducer", () => {
 
+    test("Default Member Reducer", () => {
+        const fakeDefaultAction = {
+            type: 'dafault',
+        }
+        const expectedDefaultMember = {
+            isProcessLoading: intialState.isProcessLoading, list: intialState.list, detail: intialState.detail
+        }
+        const actualDefaultMember = members(undefined, fakeDefaultAction);
+        expect(actualDefaultMember).toEqual(expectedDefaultMember);
+
+    });
 });
-
-
 describe("The Member List Reducer", () => {
     beforeAll(() => {
         for (let i = 0; i < 3; i++) {
@@ -131,14 +132,6 @@ describe("The Member List Reducer", () => {
     });
 
     test("Member Progress Reducer", () => {
-        const fakeMember = {
-            id: 'ae06181d-92c2-4fed-a29d-fb53a6301eb9',
-            key: 'ae06181d-92c2-4fed-a29d-fb53a6301eb9',
-            memberName: 'Member 1',
-            memberAge: 32,
-            address: 'Address 1',
-            createdAt: '01/01/2020',
-        }
         const fakeMemberProgress = {
             type: actionTypes.LOAD_MEMBER_PROGRESS,
         }
@@ -150,14 +143,6 @@ describe("The Member List Reducer", () => {
     });
 
     test("Member Failure Reducer", () => {
-        const fakeMember = {
-            id: 'ae06181d-92c2-4fed-a29d-fb53a6301eb9',
-            key: 'ae06181d-92c2-4fed-a29d-fb53a6301eb9',
-            memberName: 'Member 1',
-            memberAge: 32,
-            address: 'Address 1',
-            createdAt: '01/01/2020',
-        }
         const fakeMemberFailure = {
             type: actionTypes.LOAD_MEMBER_FAILURE,
         }

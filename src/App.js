@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import 'antd/dist/antd.css';
 import MyRoute from './MyRoute';
 
-function App() {
+const App = () => {
   return (
     <Router>
       <MyRoute />

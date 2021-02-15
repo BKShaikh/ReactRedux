@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { Table, Space, Button, Spin } from 'antd';
 import { connect } from "react-redux";
 import {
@@ -46,7 +45,7 @@ const MemberList = ({ isProcessLoading, membersData, startLoadingMembers, delete
         },
     ];
     const actionOnMember = (actionPerformed, memberId) => {
-        if (actionPerformed != "delete") {
+        if (actionPerformed !== 'delete') {
             history.push("member/" + actionPerformed + "/" + memberId);
         } else {
             if (window.confirm('Do you want to delete this memeber') === true) {
@@ -54,20 +53,11 @@ const MemberList = ({ isProcessLoading, membersData, startLoadingMembers, delete
             }
         }
     }
-    const data = [
-        {
-            key: '1',
-            memberName: 'John Brown',
-            memberAge: 32,
-            address: 'New York No. 1 Lake Park',
-        },
-    ]
-
     return (
         <Spin size="large"
             tip="Loading..."
             spinning={isProcessLoading}>
-            <Table columns={columns} dataSource={membersData} />
+            <Table rowKey={'id'} columns={columns} dataSource={membersData} />
         </Spin>
     );
 };

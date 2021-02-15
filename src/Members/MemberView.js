@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { Form, Input, Button, Checkbox, Spin } from 'antd';
+import { Form, Input, Button, Spin } from 'antd';
 import { connect } from "react-redux";
 import {
     getMemberLoading,

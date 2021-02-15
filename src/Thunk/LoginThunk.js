@@ -1,5 +1,4 @@
 import {
-    userLogin,
     loadUserInFailure,
     loadUserInSuccess,
     loadUserInProgress
@@ -12,7 +11,6 @@ export const displayAlert = text => () => {
 
 export const userLoginThunk = (userObj, history) => async (dispatch, getState) => {
     try {
-        console.log("Came in User Login Thunk")
         debugger
         dispatch(loadUserInProgress());
         const response = await fetch(URI + "login/" + userObj.username + "/" + userObj.password);
@@ -20,7 +18,6 @@ export const userLoginThunk = (userObj, history) => async (dispatch, getState) =
         dispatch(loadUserInSuccess(user));
         history.push("dashboard")
     } catch (e) {
-        debugger
         dispatch(loadUserInFailure());
         dispatch(displayAlert(e));
     }

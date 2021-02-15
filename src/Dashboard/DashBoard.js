@@ -22,19 +22,19 @@ class DashBoard extends Component {
             <Layout data-testid="DashBoardBase" className="layout">
                 <Header>
                     <Menu theme="dark" mode="horizontal">
-                        <Menu.Item key="1" >Members List
+                        <Menu.Item  >Members List
                             <Link exact to="/dashboard/memberlist">
                             </Link>
                         </Menu.Item>
-                        <Menu.Item key="4" >Members Add
+                        <Menu.Item  >Members Add
                             <Link exact to="/dashboard/memberadd/add">
                             </Link>
                         </Menu.Item>
-                        <Menu.Item key="2" >About
+                        <Menu.Item  >About
                             <Link exact to="/dashboard/about">
                             </Link>
                         </Menu.Item>
-                        <Menu.Item style={{ float: 'right' }} key="3" onClick={() => this.onLogout()}>Logout
+                        <Menu.Item style={{ float: 'right' }}  onClick={() => this.onLogout()}>Logout
                         </Menu.Item>
                     </Menu>
                 </Header>

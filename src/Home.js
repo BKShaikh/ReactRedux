@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu } from 'antd';
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 
 const Home = props => {
     return (

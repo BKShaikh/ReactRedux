@@ -1,6 +1,3 @@
-import { createSelector } from "reselect";
-import { createStore } from "redux";
-
 export const getUserState = state => state.users.data;
 export const getUserAllowed = state => state.users;
 export const getUserLoading = state => state.users.isProcessLoading;

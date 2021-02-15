@@ -1,7 +1,4 @@
 import {
-    memberAdd,
-    memberEdit,
-    memberDelete,
     addMemberDetail,
     loadMemberDetail,
     loadMemberInProgress,

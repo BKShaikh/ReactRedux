@@ -20,10 +20,6 @@ function render(
     } = {}
 ) {
     function Wrapper({ children }) {
-        console.log("inside custom rendere initialState", initialState)
-        console.log("inside custom rendere store", store)
-        console.log("inside custom rendere childer", children)
-        console.log("store actions ", store.getActions())
         return <Provider store={store}>{children}</Provider>
     }
     return rtlRender(ui, { wrapper: Wrapper, ...renderOptions })

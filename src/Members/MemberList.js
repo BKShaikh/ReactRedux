@@ -37,9 +37,9 @@ const MemberList = ({ isProcessLoading, membersData, startLoadingMembers, delete
             key: 'action',
             render: (text, record) => (
                 <Space size="middle">
-                    <Button type="link" onClick={() => actionOnMember('view', record.id)}>View</Button>
-                    <Button type="link" onClick={() => actionOnMember('edit', record.id)}>Edit</Button>
-                    <Button type="link" onClick={() => actionOnMember('delete', record.id)}>Delete</Button>
+                    <Button data-testid="viewButton" type="link" onClick={() => actionOnMember('view', record.id)}>View</Button>
+                    <Button data-testid="editButton" type="link" onClick={() => actionOnMember('edit', record.id)}>Edit</Button>
+                    <Button data-testid="deleteButton" type="link" onClick={() => actionOnMember('delete', record.id)}>Delete</Button>
                 </Space>
             ),
         },
@@ -54,11 +54,13 @@ const MemberList = ({ isProcessLoading, membersData, startLoadingMembers, delete
         }
     }
     return (
-        <Spin size="large"
-            tip="Loading..."
-            spinning={isProcessLoading}>
-            <Table rowKey={'id'} columns={columns} dataSource={membersData} />
-        </Spin>
+        <div data-testid="MemberListComponent">
+            <Spin size="large"
+                tip="Loading..."
+                spinning={isProcessLoading}>
+                <Table rowKey={'id'} columns={columns} dataSource={membersData} />
+            </Spin>
+        </div>
     );
 };
 

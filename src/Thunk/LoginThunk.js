@@ -5,8 +5,8 @@ import {
 } from "../actions";
 const URI = "http://localhost:8080/";
 
-export const displayAlert = text => () => {
-    alert(text)
+export const displayAlert = text  => {
+    console.log(text)
 }
 
 export const userLoginThunk = (userObj, history) => async (dispatch, getState) => {
@@ -19,6 +19,6 @@ export const userLoginThunk = (userObj, history) => async (dispatch, getState) =
         history.push("dashboard")
     } catch (e) {
         dispatch(loadUserInFailure());
-        dispatch(displayAlert(e));
+        displayAlert(e);
     }
 }

@@ -12,8 +12,6 @@ const { Header, Content } = Layout;
 
 class DashBoard extends Component {
     onLogout() {
-        debugger
-        console.log("aa")
         store.dispatch(userLogout());
         this.props.history.push("../..");
     }
@@ -34,7 +32,7 @@ class DashBoard extends Component {
                             <Link exact to="/dashboard/about">
                             </Link>
                         </Menu.Item>
-                        <Menu.Item style={{ float: 'right' }}  onClick={() => this.onLogout()}>Logout
+                        <Menu.Item data-testid="LogoutButton" style={{ float: 'right' }} onClick={() => this.onLogout()}>Logout
                         </Menu.Item>
                     </Menu>
                 </Header>

@@ -11,7 +11,6 @@ const fakeMember = {
 }
 const intialState = { isProcessLoading: false, list: [], detail: null }
 describe("The Default Member List Reducer", () => {
-
     test("Default Member Reducer", () => {
         const fakeDefaultAction = {
             type: 'dafault',
@@ -39,8 +38,6 @@ describe("The Member List Reducer", () => {
         }
         intialState.list.concat(fakeMemberForDelete);
     });
-
-
     test("Member Add Reducer", () => {
         const fakeMember = {
             id: 'cda9165d-c263-4ef6-af12-3f1271af5fb4',
@@ -63,7 +60,6 @@ describe("The Member List Reducer", () => {
         expect(actualAddMember).toEqual(expectedAddMember);
 
     });
-
     test("Get Single Member Reducer", () => {
         const fakeMember = {
             id: 'cda9165d-c263-4ef6-af12-3f1271af5fb4',
@@ -86,7 +82,6 @@ describe("The Member List Reducer", () => {
         expect(actualGetSinglMember).toEqual(expectedMemberDetails);
 
     });
-
     test("Member Edit Reducer", () => {
         const fakeMember = {
             id: '2e538cc5-b734-4771-a109-dfcd204bb38b',
@@ -108,7 +103,6 @@ describe("The Member List Reducer", () => {
         const actualEditedMember = members(intialState, fakeMemberEdit);
         expect(actualEditedMember).toEqual(expectedEditMember);
     });
-
     test("Member Delete Reducer", () => {
         const fakeMember = {
             id: '1',
@@ -130,7 +124,6 @@ describe("The Member List Reducer", () => {
         const actualDeletedMember = members(intialState, fakeMemberDelete);
         expect(actualDeletedMember).toEqual(expectedDeleteMember);
     });
-
     test("Member Progress Reducer", () => {
         const fakeMemberProgress = {
             type: actionTypes.LOAD_MEMBER_PROGRESS,
@@ -141,7 +134,6 @@ describe("The Member List Reducer", () => {
         const actualProgressMember = members(intialState, fakeMemberProgress);
         expect(actualProgressMember).toEqual(expectedProgressMember);
     });
-
     test("Member Failure Reducer", () => {
         const fakeMemberFailure = {
             type: actionTypes.LOAD_MEMBER_FAILURE,
@@ -152,7 +144,6 @@ describe("The Member List Reducer", () => {
         const actualFailure = members(intialState, fakeMemberFailure);
         expect(actualFailure).toEqual(expectedFailureMember);
     });
-
     test("Member Success Reducer", () => {
         const fakeMember = {
             id: 'ae06181d-92c2-4fed-a29d-fb53a6301eb9',
@@ -174,5 +165,4 @@ describe("The Member List Reducer", () => {
         const actualSuccess = members(intialState, fakeMemberSuccess);
         expect(actualSuccess).toEqual(expectedSuccessMember);
     });
-
 });

@@ -10,8 +10,8 @@ import {
 
 const URI = "http://localhost:8080/";
 
-export const displayAlert = text => () => {
-    alert(text)
+const displayAlert = text =>  {
+    console.log(text)
 }
 
 export const loadMembers = () => async (dispatch, getState) => {
@@ -24,7 +24,7 @@ export const loadMembers = () => async (dispatch, getState) => {
     } catch (e) {
         debugger
         dispatch(loadMemberInFailure());
-        dispatch(displayAlert(e));
+        displayAlert(e);
     }
 }
 
@@ -40,11 +40,10 @@ export const deleteMember = (id) => async (dispatch, getState) => {
         });
         const members = await response.json();
         dispatch(deleteMemberInSuccess(members.id));
-        dispatch(displayAlert("member -> " + members.memberName));
     } catch (e) {
         debugger
         dispatch(loadMemberInFailure());
-        dispatch(displayAlert(e));
+        displayAlert(e);
     }
 }
 
@@ -55,7 +54,6 @@ export const loadSingleMember = (id, form) => async (dispatch, getState) => {
         const response = await fetch(URI + "members/" + id);
         const members = await response.json();
         dispatch(loadMemberDetail(members));
-
         form.setFieldsValue({
             memberName: members.memberName,
             createdAt: new Date(members.createdAt).toLocaleDateString(),
@@ -65,7 +63,7 @@ export const loadSingleMember = (id, form) => async (dispatch, getState) => {
     } catch (e) {
         debugger
         dispatch(loadMemberInFailure());
-        dispatch(displayAlert(e));
+        displayAlert(e);
     }
 }
 
@@ -92,7 +90,7 @@ export const UpdateSingleMember = (memberId, memberObj, history) => async (dispa
     } catch (e) {
         debugger
         dispatch(loadMemberInFailure());
-        dispatch(displayAlert(e));
+        displayAlert(e);
     }
 }
 
@@ -120,6 +118,6 @@ export const AddSingleMember = (memberObj, history) => async (dispatch, getState
     } catch (e) {
         debugger
         dispatch(loadMemberInFailure());
-        dispatch(displayAlert(e));
+        displayAlert(e);
     }
 }

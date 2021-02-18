@@ -35,11 +35,6 @@ const history = createMemoryHistory();
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares);
 const storeMock = mockStore(store.getState());
-// const storeMock = mockStore({
-//     users: { isProcessLoading: false, isRouteAllowed: false, data: [] },
-//     members: { isProcessLoading: false, list: [], detail: null },
-//     _persist: { version: -1, rehydrated: false }
-// });
 describe("Without Store", () => {
     test("Main App Test At Start", () => {
         render(
@@ -49,7 +44,6 @@ describe("Without Store", () => {
         )
         expect(screen.getByText(/Home/i)).toBeInTheDocument()
     });
-
     test("Main App Test At Wrong URL", () => {
         var temphistory = createMemoryHistory();
         temphistory.push('/wrongroute')
@@ -60,7 +54,6 @@ describe("Without Store", () => {
         )
         expect(screen.getByText(/ERROR PAGE WRONG URL/i)).toBeInTheDocument()
     });
-
     test("Main App without Router", () => {
         render(
             <App />
@@ -96,7 +89,6 @@ describe("With Store", () => {
         )
         expect(screen.getByTestId(/loginForm/i)).toBeInTheDocument()
     });
-
     test("Main App Test At Dashboard URL Redirected to Login", () => {
         var temphistory = createMemoryHistory();
         const route = '/dashboard'
@@ -125,7 +117,6 @@ describe("With Store", () => {
             members: { isProcessLoading: false, list: [], detail: null },
             _persist: { version: -1, rehydrated: false }
         });
-        
         render(
             <Provider store={storeMockTest}>
                 <Router history={temphistory}>
@@ -137,7 +128,6 @@ describe("With Store", () => {
         expect(screen.getByText(/Welcome to DashBoard/i)).toBeInTheDocument();
     });
 });
-
 
 describe("Actions Test", () => {
     beforeEach(() => {
@@ -190,7 +180,6 @@ describe("Actions Test", () => {
         ]
         expect(storeMock.getActions()).toEqual(expectedActions);
     });
-
     test("Member Failure", () => {
         storeMock.dispatch(loadMemberInFailure());
         const expectedActions = [
@@ -198,7 +187,6 @@ describe("Actions Test", () => {
         ]
         expect(storeMock.getActions()).toEqual(expectedActions);
     });
-
     test("Member Delete", () => {
         storeMock.dispatch(deleteMemberInSuccess(fakeMember.id));
         const expectedActions = [
